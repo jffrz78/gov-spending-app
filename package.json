@@ -1,0 +1,26 @@
+{
+  "name": "gov-spend-poller",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Daily USAspending initial prime-contract award poller for SEC-listed companies.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "poll": "node --import tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "test": "node --import tsx --test test/*.test.ts",
+    "check": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "csv-parse": "^7.0.1",
+    "fflate": "^0.8.3"
+  }
+}
