@@ -1,4 +1,4 @@
-# Gov Spend Poller
+# Government Spending App
 
 A TypeScript CLI that retrieves the previous day's **initial prime federal
 contract awards** from USAspending, identifies recipients associated with
