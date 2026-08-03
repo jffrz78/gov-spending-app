@@ -30,7 +30,6 @@ The default run:
 - checks that job's status at a conservative interval, then downloads one ZIP;
 - reads the initial obligation, potential award value, recipient, and parent
   recipient directly from the exported CSV;
-- never paginates through 100-row search results;
 - never calls the single-award detail endpoint;
 - excludes later contract modifications and all subcontracts;
 - matches both legal recipients and exported parent recipients against the SEC
@@ -81,10 +80,6 @@ The normal USAspending request count is:
 1 export submission + a few status checks + 1 ZIP download
 ```
 
-The number of exported awards no longer controls the request count. For
-example, 18,500 awards still require only one export submission and one archive
-download; only the number of status checks varies with generation time.
-
 ## Output meanings
 
 `gov_spend.md` contains:
@@ -105,10 +100,6 @@ field is shown as unavailable when no award in that ticker group reports it.
 Rows with unavailable committed amounts appear last; ties are sorted by ticker.
 
 ## Date behavior
-
-USAspending does not expose the timestamp when a record first became public.
-Therefore, “previous day” means the previous day's initial-award action, not
-the website publication timestamp.
 
 The bulk export is filtered with `date_type: new_awards_only`, and the app also
 checks locally that the action date matches and the modification number is
